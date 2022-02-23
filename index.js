@@ -7,25 +7,31 @@ let randomNumber = Math.ceil((Math.random() * 100))
 
 function clickGuessBtn() {
     let guessedNo = Number(number_guess.value)
-
-    if (guessedNo < randomNumber) {
+    console.log(randomNumber);
+    if(guessedNo <= 0 || guessedNo >= 100){
+        msg.innerHTML = "Your guess is out of range";
+    }
+    else if (guessedNo < randomNumber) {
         msg.innerHTML = "Your guess is too low";
     } else if (guessedNo > randomNumber) {
         msg.innerHTML = "Your guess is too high";
     } else {
+        setTimeout(function (){
+            randomNumber = Math.ceil((Math.random() * 100));
+            flashMsg.innerHTML = flashMessage();
+        }, 5000)
         msg.innerHTML = `Correct, the secret number is ${guessedNo}`;
-        updateRandomNo = Math.ceil((Math.random() * 100));
-        flashMsg.innerHTML = flashMessage();
+       
     }
     setTimeout(function () {
         msg.innerHTML = "";
     }, 5000);
-    setTimeout(function () {
-        flashMsg.innerHTML = "";
-    }, 3000);
+   ;
 }
 function flashMessage(){
-
+    setTimeout(function () {
+        flashMsg.innerHTML = "";
+    }, 5000)
         return "New game started!!!";  
 }
 
