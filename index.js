@@ -19,6 +19,9 @@ function clickGuessBtn() {
     }
     setTimeout(function () {
         msg.innerHTML = "";
+    }, 5000);
+    setTimeout(function () {
+        flashMsg.innerHTML = "";
     }, 3000);
 }
 function flashMessage(){
