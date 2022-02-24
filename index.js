@@ -8,8 +8,8 @@ let randomNumber = Math.ceil((Math.random() * 100))
 function clickGuessBtn() {
     let guessedNo = Number(number_guess.value)
     console.log(randomNumber);
-    if(guessedNo <= 0 || guessedNo >= 100){
-        msg.innerHTML = "Your guess is out of range";
+    if(guessedNo <= 0 || guessedNo >= 101){
+        msg.innerHTML = "Guess numbers between 1 and 100";
     }
     else if (guessedNo < randomNumber) {
         msg.innerHTML = "Your guess is too low";
@@ -25,13 +25,13 @@ function clickGuessBtn() {
     }
     setTimeout(function () {
         msg.innerHTML = "";
-    }, 5000);
+    }, 3000);
    ;
 }
 function flashMessage(){
     setTimeout(function () {
         flashMsg.innerHTML = "";
-    }, 5000)
+    }, 3000)
         return "New game started!!!";  
 }
 
